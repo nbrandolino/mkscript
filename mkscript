@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+
+import argparse
+import configparser
+import os
+import platform
+import sys
+
+__author__ = "nbrandolino"
+__fname__ = "Nick Brandolino"
+__email__ = "nickbrandolino134@gmail.com"
+__repo__ = "https://gitlab.vanth.io/nbrandolino/mkscript"
+__license__ = "GPL"
+__version__ = "v1.0"
+
+
+def main():
+    checkOS()
+    parser = getParser()
+    args = parser.parse_args()
+
+    if args.version:
+        version()
+    elif args.bash_output_file:
+        bash(parser, args.bash_output_file)
+    elif args.lua_output_file:
+        lua(parser, args.lua_output_file)
+    elif args.perl_output_file:
+        perl(parser, args.perl_output_file)
+    elif args.python_output_file:
+        python(parser, args.python_output_file)
+    elif args.ruby_output_file:
+        ruby(parser, args.ruby_output_file)
+    else:
+        parser.print_help()
+
+
+def checkOS():
+    if platform.system() in ['Linux', 'Darwin']:
+        pass
+    else:
+        print("Script can only be run on Linux or macOS.")
+        sys.exit(1)
+
+
+def getParser():
+    parser = argparse.ArgumentParser(description='Python script to create a script with the shebang and make it executable')
+    groupMain = parser.add_mutually_exclusive_group(required=False)
+    groupOutput = parser.add_mutually_exclusive_group(required=False)
+    groupMain.add_argument(
+        "-v",
+        "--version",
+        action = "store_true",
+        help = "display version information",
+    )
+    groupOutput.add_argument(
+        "-b",
+        "--bash",
+        dest = "bash_output_file",
+        metavar = "FILENAME",
+        help = "specify output file location [required]"
+    )
+    groupOutput.add_argument(
+        "-l",
+        "--lua",
+        dest = "lua_output_file",
+        metavar = "FILENAME",
+        help = "specify output file location [required]"
+    )
+    groupOutput.add_argument(
+        "-pe",
+        "--perl",
+        dest = "perl_output_file",
+        metavar = "FILENAME",
+        help = "specify output file location [required]"
+    )
+    groupOutput.add_argument(
+        "-py",
+        "--python",
+        dest = "python_output_file",
+        metavar = "FILENAME",
+        help = "specify output file location [required]"
+    )
+    groupOutput.add_argument(
+        "-r",
+        "--ruby",
+        dest = "ruby_output_file",
+        metavar = "FILENAME",
+        help = "specify output file location [required]"
+    )
+
+    return parser
+
+
+def printVanth():
+    print()
+    print("\033[1;31m             '```'\033[1;m")
+    print('\033[1;31m         ,{)-;,",;-){,\033[1;m                    __                        .__        __    ')
+    print("\033[1;31m        ~r,           ,r~\033[1;m          _____ |  | __  ______ ___________|__|______/  |_  ")
+    print("\033[1;31m      'z;               ;z'\033[1;m       /     \|  |/ / /  ___// ___\_  __ \  \____ \   __\ ")
+    print("\033[1;31m      #,    (('          ,#\033[1;m      |  Y Y  \    <  \___ \\  \___|  | \/  |  |_> >  |   ")
+    print("\033[1;31m     :v     n](('         v:\033[1;m     |__|_|  /__|_ \/____  >\___  >__|  |__|   __/|__|   ")
+    print("\033[1;31m     >t     n; `$('       t>\033[1;m           \/     \/     \/     \/         |__|          ")
+    print("\033[1;31m     `%.    x: .$^(('    .%`\033[1;m")
+    print("\033[1;31m      +j       .$. '(('  j+\033[1;m")
+    print(f'\033[1;31m       ;v"     .W.   "(|v;\033[1;m      [ {__fname__} | {__email__} ]')
+    print("\033[1;31m        .>f~`.     .`~f>.\033[1;m")
+    print("\033[1;31m           ',+}[[[}+,'\033[1;m")
+    print()
+
+
+def version():
+    printVanth()
+    print(f"         \033[1;31m[ mkscript ] {__version__} \033[1;m")
+    print()
+    print(f" * Author - {__author__}")
+    print(f" * Repo - {__repo__}")
+    print(f" * License - {__license__}")
+    print(" Take a look ./README.md file for more info about the program\r\n")
+
+
+def bash(parser, bash_output_file):
+    with open(bash_output_file, 'w') as f:
+        f.write("#!/usr/bin/env bash")
+    os.chmod(bash_output_file, 0o755)
+
+
+def lua(parser, lua_output_file):
+    with open(lua_output_file, 'w') as f:
+        f.write("#!/usr/bin/env lua")
+    os.chmod(lua_output_file, 0o755)
+
+
+def perl(parser, perl_output_file):
+    with open(perl_output_file, 'w') as f:
+        f.write("#!/usr/bin/env perl")
+    os.chmod(perl_output_file, 0o755)
+
+
+def python(parser, python_output_file):
+    with open(python_output_file, 'w') as f:
+        f.write("#!/usr/bin/env python3")
+    os.chmod(python_output_file, 0o755)
+
+
+def ruby(parser, ruby_output_file):
+    with open(ruby_output_file, 'w') as f:
+        f.write("#!/usr/bin/env ruby")
+    os.chmod(ruby_output_file, 0o755)
+
+
+if __name__ == "__main__":
+    main()
