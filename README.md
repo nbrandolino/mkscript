@@ -22,11 +22,11 @@ mkscript [-h] [-v] [-b FILENAME | -l FILENAME | -pe FILENAME | -py FILENAME | -r
 ## Options
 - `-h, --help`: Display help information.
 - `-v, --version`: Display the version and licensing information.
-- `-b, --bash` FILENAME: Create a Bash script and save it as FILENAME.
-- `-l, --lua` FILENAME: Create a Lua script and save it as FILENAME.
-- `-pe, --perl` FILENAME: Create a Perl script and save it as FILENAME.
-- `-py, --python` FILENAME: Create a Python script and save it as FILENAME.
-- `-r, --ruby` FILENAME: Create a Ruby script and save it as FILENAME.
+- `-b, --bash`: FILENAME: Create a Bash script and save it as FILENAME.
+- `-l, --lua`: FILENAME: Create a Lua script and save it as FILENAME.
+- `-pe, --perl`: FILENAME: Create a Perl script and save it as FILENAME.
+- `-py, --python`: FILENAME: Create a Python script and save it as FILENAME.
+- `-r, --ruby`: FILENAME: Create a Ruby script and save it as FILENAME.
 
 ### Examples
 1. Create bash script:
