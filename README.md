@@ -1,66 +1,61 @@
 # mkscript
+`mkscript` is a Python utility script for creating executable scripts in various languages (Bash, Lua, Perl, Python, Ruby). It generates a script with the appropriate shebang (`#!`) and sets executable permissions for the output file.
 
-## About
+## Features
+- Generate executable scripts for:
+  - Bash
+  - Lua
+  - Perl
+  - Python
+  - Ruby
+- Automatically adds the correct shebang line.
+- Makes the output file executable.
 
-  This software is used to create scripts that are executable and contain the specific scripts shebang.
+## Requirements
+- **Operating System**: The script can only be run on **Linux** or **macOS**.
 
+## Usage
+```bash
+mkscript [-h] [-v] [-b FILENAME | -l FILENAME | -pe FILENAME | -py FILENAME | -r FILENAME]
+```
 
-Requirements
-------------
+## Options
+- `-h, --help`: Display help information.
+- `-v, --version`: Display the version and licensing information.
+- `-b, --bash` FILENAME: Create a Bash script and save it as FILENAME.
+- `-l, --lua` FILENAME: Create a Lua script and save it as FILENAME.
+- `-pe, --perl` FILENAME: Create a Perl script and save it as FILENAME.
+- `-py, --python` FILENAME: Create a Python script and save it as FILENAME.
+- `-r, --ruby` FILENAME: Create a Ruby script and save it as FILENAME.
 
-You need python3 to run this script.
+### Examples
+1. Create bash script:
+   ```bash
+   mkscript -b ./script.sh
+   ```
 
-Installation
-------------
+2. Create Lua script:
+  ```bash
+  mkscript -l ./script.lua
+  ```
 
-    $ cd ./mkscript
-    $ make install
+3. Create Python script:
+  ```bash
+  mkscript -py ./script.py
+  ```
 
-Quick start
------------
-
-    $ mkscript [-h] [-v] [-b FILENAME | -l FILENAME | -pe FILENAME | -py FILENAME | -r FILENAME]
-
-Options
--------
-
-    -h, --help            show this help message and exit
-    -v, --version         display version information
-    -b FILENAME, --bash FILENAME
-                          specify output file location [required]
-    -l FILENAME, --lua FILENAME
-                          specify output file location [required]
-    -pe FILENAME, --perl FILENAME
-                          specify output file location [required]
-    -py FILENAME, --python FILENAME
-                          specify output file location [required]
-    -r FILENAME, --ruby FILENAME
-                          specify output file location [required]
-
-
-## Configuration
-
-   There is no additional configuration needed in order to run this app.
+## Install
+To install, use the following commands:
+```bash
+cd ./mkscript
+```
+```bash
+make install
+```
 
 ## License
+This tool is licensed under the GNU General Public License (GPL). See ./LICENSE for more details.
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 3 of the License, or
-  any later version.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-  See './LICENSE' for more information.
-
-## Original author
-
-  Nick Brandolino aka nbrandolino
-  nickbrandolino134@gmail.com
+## Contact
+nbrandolino
+nickbrandolino134@gmail.com
