@@ -1,12 +1,9 @@
-PREFIX = /usr
+TARGET = mkscript
+DESTDIR = /usr/bin/
 
 all:
 	@echo Run \'make install\' to install mkscript.
-
 install:
-	@mkdir -p $(DESTDIR)$(PREFIX)/bin
-	@cp -p mkscript $(DESTDIR)$(PREFIX)/bin/mkscript
-	@chmod 755 $(DESTDIR)$(PREFIX)/bin/mkscript
-
+	@cp -p $(TARGET) $(DESTDIR)$(TARGET)
 uninstall:
-	@rm -rf $(DESTDIR)$(PREFIX)/bin/mkscript
+	@rm -rf $(DESTDIR)$(TARGET)
