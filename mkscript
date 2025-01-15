@@ -7,7 +7,7 @@ import sys
 
 # software version and name
 __software__ = "mkscript"
-__version__ = "1.0"
+__version__ = "1.1"
 
 # main function
 def main():
@@ -24,15 +24,15 @@ def main():
     if args.version:
         version()
     elif args.bash_output_file:
-        bash(parser, args.bash_output_file)
+        create_script(args.bash_output_file, "#!/usr/bin/env bash")
     elif args.lua_output_file:
-        lua(parser, args.lua_output_file)
+        create_script(args.lua_output_file, "#!/usr/bin/env lua")
     elif args.perl_output_file:
-        perl(parser, args.perl_output_file)
+        create_script(args.perl_output_file, "#!/usr/bin/env perl")
     elif args.python_output_file:
-        python(parser, args.python_output_file)
+        create_script(args.python_output_file, "#!/usr/bin/env python3")
     elif args.ruby_output_file:
-        ruby(parser, args.ruby_output_file)
+        create_script(args.ruby_output_file, "#!/usr/bin/env ruby")
     else:
         parser.print_help()
 
@@ -99,35 +99,16 @@ def version():
     print(f"Version: {__version__}")
     print("Licensed under the terms of the GNU General Public License.")
 
-# bash function
-def bash(parser, bash_output_file):
-    with open(bash_output_file, 'w') as f:
-        f.write("#!/usr/bin/env bash")
-    os.chmod(bash_output_file, 0o755)
-
-# lua function
-def lua(parser, lua_output_file):
-    with open(lua_output_file, 'w') as f:
-        f.write("#!/usr/bin/env lua")
-    os.chmod(lua_output_file, 0o755)
-
-# perl function
-def perl(parser, perl_output_file):
-    with open(perl_output_file, 'w') as f:
-        f.write("#!/usr/bin/env perl")
-    os.chmod(perl_output_file, 0o755)
-
-# python function
-def python(parser, python_output_file):
-    with open(python_output_file, 'w') as f:
-        f.write("#!/usr/bin/env python3")
-    os.chmod(python_output_file, 0o755)
-
-# ruby function
-def ruby(parser, ruby_output_file):
-    with open(ruby_output_file, 'w') as f:
-        f.write("#!/usr/bin/env ruby")
-    os.chmod(ruby_output_file, 0o755)
+# create script with shebang and make it executable
+def create_script(filename, shebang):
+    try:
+        with open(filename, 'w') as f:
+            f.write(shebang + "\n")
+        os.chmod(filename, 0o755)
+        print(f"Script created: {filename}")
+    except OSError as e:
+        print(f"Error creating file {filename}: {e}")
+        sys.exit(1)
 
 # call main
 if __name__ == "__main__":
