@@ -30,9 +30,9 @@ mkscript [-h] [-v] [-b FILENAME | -l FILENAME | -pe FILENAME | -py FILENAME | -r
 
 ### Examples
 1. Create bash script:
-   ```bash
-   mkscript -b ./script.sh
-   ```
+  ```bash
+  mkscript -b ./script.sh
+  ```
 
 2. Create Lua script:
   ```bash
