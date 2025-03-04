@@ -6,17 +6,17 @@
 
 ## Installation
 1. Clone the repository:
-  ```bash
-  git clone https://github.com/nbrandolino/mkscript.git
-  ```
+   ```bash
+   git clone https://github.com/nbrandolino/mkscript.git
+   ```
 2. Navigate to the project directory:
-  ```bash
-  cd mkscript
-  ```
+   ```bash
+   cd mkscript
+   ```
 3. Install:
-  ```bash
-  make install
-  ```
+   ```bash
+   make install
+   ```
 
 ## Usage
 Run the tool using the following command:
@@ -35,17 +35,17 @@ mkscript [OPTIONS]
 
 ### Examples
 1. Create bash script:
-  ```bash
-  mkscript -b ./script.sh
-  ```
+   ```bash
+   mkscript -b ./script.sh
+   ```
 2. Create Lua script:
-  ```bash
-  mkscript -l ./script.lua
-  ```
+   ```bash
+   mkscript -l ./script.lua
+   ```
 3. Create Python script:
-  ```bash
-  mkscript -py ./script.py
-  ```
+   ```bash
+   mkscript -py ./script.py
+   ```
 
 ## License
 This tool is licensed under the GNU General Public License (GPL). See ./LICENSE for more details.
